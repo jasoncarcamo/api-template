@@ -11,6 +11,14 @@ app.use(morgan("tiny"));
 app.use(cors());
 app.use(helmet());
 
+app.use("/api", LoginRouter);
+
+
+
+app.get("/", (req, res)=> {
+    res.send("Working");
+});
+
 app.use(function errorHandler(error, req, res, next) {
 
     let response;
@@ -27,12 +35,5 @@ app.use(function errorHandler(error, req, res, next) {
     return res.status(500).json(response);
   });
 
-app.use("/api", LoginRouter);
-
-
-
-app.get("/", (req, res)=> {
-    res.send("Working");
-});
 
 module.exports = app;
