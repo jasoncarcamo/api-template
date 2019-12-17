@@ -5,7 +5,7 @@ const LoginService = require("./LoginService");
 LoginRouter
     .route("/login")
     .all(express.json())
-    .post((req, res)=>{
+    .post((req, res, next)=>{
         console.log(req.body)
         const {
             mobile_number,
@@ -41,6 +41,7 @@ LoginRouter
                     })
 
             })
+            .catch(next)
 
         
     })
