@@ -39,6 +39,7 @@ LoginRouter
 
                         return res.status(200).json({ sucess: data});
                     })
+                    .catch(next)
 
             })
             .catch(next)
