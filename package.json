@@ -2,11 +2,14 @@
   "name": "api-template",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/app/server.js",
   "scripts": {
     "start": "node ./src/app/server.js",
     "dev": "nodemon ./src/app/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "10.16.0"
   },
   "keywords": [],
   "author": "",

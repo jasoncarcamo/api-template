@@ -9,4 +9,6 @@ const db = knex({
 
 app.set("db", db);
 
-app.listen( process.env.PORT);
+app.listen( process.env.PORT, ()=>{
+    console.log("Working");
+});
