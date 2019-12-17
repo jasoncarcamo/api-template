@@ -24,12 +24,22 @@ LoginRouter
         }
 
         LoginService.findUser( req.app.get("db"), loginForm.mobile_number)
-            .then( data => {
-                console.log(data)
+            .then( dbUser => {
+                
+                if(!dbUser){
+                    return res.status(400).json({ error: "No user found"});
+                };
 
+                LoginService.comparePassword( loginForm.password, dbUser.password)
+                    .then( match => {
 
+                        if(!match){
+                            return res.status(400).json({ error: "Wrong"});
+                        };
 
-                return res.status(201).json({ sucess: data});
+                        return res.status(201).json({ sucess: data});
+                    })
+
             })
 
         
