@@ -1,5 +1,6 @@
 const express = require('express');
 const LoginRouter = express.Router();
+const LoginService = require("./LoginService");
 
 LoginRouter
     .route("/login")
@@ -21,7 +22,14 @@ LoginRouter
             };
         }
 
-        return res.status(201).json({ sucess: "Your tokem here"});
+        LoginService.findUser( req.app.get("db"), loginForm.mobile_number)
+            ,then( data => {
+                console.log(data)
+
+                return res.status(201).json({ sucess: data});
+            })
+
+        
     })
 
 
