@@ -37,7 +37,7 @@ LoginRouter
                             return res.status(400).json({ error: "Wrong"});
                         };
 
-                        return res.status(201).json({ sucess: data});
+                        return res.status(200).json({ sucess: data});
                     })
 
             })
