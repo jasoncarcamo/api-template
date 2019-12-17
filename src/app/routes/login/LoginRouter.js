@@ -6,6 +6,7 @@ LoginRouter
     .route("/login")
     .all(express.json())
     .post((req, res)=>{
+        console.log(req.body)
         const {
             mobile_number,
             password
@@ -23,8 +24,10 @@ LoginRouter
         }
 
         LoginService.findUser( req.app.get("db"), loginForm.mobile_number)
-            ,then( data => {
+            .then( data => {
                 console.log(data)
+
+
 
                 return res.status(201).json({ sucess: data});
             })
