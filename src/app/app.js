@@ -12,7 +12,7 @@ app.use(helmet());
 
 app.use("/api", LoginRouter);
 
-app.get("/api", (req, res)=> {
+app.get("/", (req, res)=> {
     res.send("Working");
 });
 
