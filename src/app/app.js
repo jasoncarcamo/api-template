@@ -5,14 +5,12 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const {NODE_ENV} = require("../../config");
 
-const LoginRouter = require("./routes/login/LoginRouter");
-
 app.use(morgan("tiny"));
 app.use(cors());
 app.use(helmet());
 
-app.use("/api", LoginRouter);
 
+//Middleware error handler
 app.use(function errorHandler(error, req, res, next) {
 
     let response;
